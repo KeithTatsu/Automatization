@@ -33,17 +33,17 @@ main(){
 
 	while [ $continuar == "S" ];
 	do
-	echo "Ingrese nombre completo del alumno:"
-	IFS=
-	read nombre
-	echo "Ingrese el padrón:"
-	read padron
-	echo "Ingrese e-mail:"
-	read e_mail
-	crear_dir $nombre
-	crear_archivo $nombre $padron $e_mail
-	echo "¿Desea crear otro alumno?"
-	read continuar
+		echo "Ingrese nombre completo del alumno:"
+		IFS=
+		read nombre
+		echo "Ingrese el padrón:"
+		read padron
+		echo "Ingrese e-mail:"
+		read e_mail
+		crear_dir $nombre
+		crear_archivo $nombre $padron $e_mail
+		echo "¿Desea crear otro alumno?"
+		read continuar
 	done
 }
 
