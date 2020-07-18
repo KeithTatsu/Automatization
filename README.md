@@ -4,4 +4,4 @@ Archivos de automatización para uso personal.
 ### Para ejecutar bash (.sh)
 `chmod +x nombre_archivo.sh` Para hacerlo ejecutable
 
-`./nombre_archivo.sh` Para ejecutar
+`./nombre_archivo.sh` o `bash nombre_archivo.sh` Para ejecutar

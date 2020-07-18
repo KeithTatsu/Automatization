@@ -8,11 +8,11 @@ BLUE="\e[1;34m"
 LIGHT_GRAY="\e[1;37m"
 NO_COLOR="\e[0m"
 
-crear_dir(){
-	mkdir $1	
+crear_dir(){ #$1 = $nombre
+	mkdir $1
 }
 
-crear_archivo(){
+crear_archivo(){ #$1 = $nombre, $2 = $padron, $3 = $e_mail
 	local directorio_anterior=$PWD
 	cd $1
 	local nombre_archivo=$1".txt"
@@ -22,7 +22,7 @@ crear_archivo(){
 	cd ..
 }
 
-main(){
+creador_alumnos(){
 	local continuar="S"
 	local nombre=""
 	local padron=0
@@ -31,10 +31,10 @@ main(){
 	echo -e "Bienvenido a creador de alumnos."
 	echo -e "Recuerde que las ${BLUE}carpetas${NO_COLOR} se crearán en el directorio actual ${YELLOW}($PWD)${NO_COLOR} y que necesita un archivo ${LIGHT_GRAY}example.txt${NO_COLOR} para crear los archivos de texto."
 
-	while [ $continuar == "S" ];
+	while [[ $continuar == "S" || $continuar == "s" ]];
 	do
 		echo "Ingrese nombre completo del alumno:"
-		IFS=
+		IFS= #Para que guarde hasta \n en $nombre
 		read nombre
 		echo "Ingrese el padrón:"
 		read padron
@@ -42,9 +42,9 @@ main(){
 		read e_mail
 		crear_dir $nombre
 		crear_archivo $nombre $padron $e_mail
-		echo "¿Desea crear otro alumno?"
+		echo "¿Desea crear otro alumno? [S/n]"
 		read continuar
 	done
 }
 
-main
+creador_alumnos
